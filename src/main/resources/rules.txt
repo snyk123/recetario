@@ -1,0 +1,7 @@
+@prefix recetario: <http://www.recetario.com/>.
+@prefix rdf: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rdfns: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+[Origen: (?A recetario:de_origen ?B) <- (?A rdfs:subClassOf ?class) (?class owl:onProperty recetario:de_origen) (?class owl:someValuesFrom ?B)]
+[Subclase: (?A rdfs:subClassOf ?B) (?B rdfs:subClassOf ?C) -> (?A rdfs:subClassOf ?C)]

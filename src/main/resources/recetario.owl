@@ -1,0 +1,1669 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.recetario.com/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.recetario.com/">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal datatypeIRI="&xsd;string">Ontología de recetas de comida</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="Aceite"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AceitedeGirasol"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AceitedeMaiz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AceitedeOliva"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AceitedeSoya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Agua"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Ajinomoto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Ajo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Albahaca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Alberjita"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Alfredo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Almendra"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="AltasCalorias"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Alto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Amargo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Arroz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Avena"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Bajo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Bolognesa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Camote"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Carne"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Cebolla"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Cereal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Comino"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Condimento"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Dulce"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Embutido"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Española"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="FrutosSecos"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Girasol"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Harina"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="HarinadeMaiz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="HarinadeSoya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Huevo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="HuevodeCodorniz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="HuevodeGallina"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Ingrediente"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Insípido"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Italiana"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Jamon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Jamonada"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Japonesa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Lasagna"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Leche"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="LechedeSoya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="LechedeVaca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Lechuga"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Limon"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Liquido"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="LomoSaltado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Maiz"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MakiSushi"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MakiSushiPalta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Mani"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Mantequilla"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MantequilladeLecheVaca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="MantequilladeManí"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Marisco"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Medio"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Mozzarella"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Nivel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="NiveldeCalorias"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="NiveldeSabor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Nori"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Nuez"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="NuezMoscada"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Olivo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Palta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Papa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Parmesano"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pasas"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pasta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Peruana"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pescado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pesto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Picante"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pimienta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pituca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Pollo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Queso"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="QuesoCrema"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Receta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Res"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Sabor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Sal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Salado"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Salsa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SalsaBlanca"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SalsaBolognesa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="SalsaPesto"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Soya"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Tallarin"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Tallarines"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="TipoReceta"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Toffu"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Tomate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Tuberculo"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Vegetal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Vegetariana"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Vino"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Zanahoria"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="Ácido"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="de_origen"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="es_ingrediente_de"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="nivelCalorias"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="nivelSabor"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="tiene_ingrediente"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="NiveldeCalorias"/>
+        <ObjectUnionOf>
+            <Class IRI="Alto"/>
+            <Class IRI="Bajo"/>
+            <Class IRI="Medio"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="NiveldeSabor"/>
+        <ObjectUnionOf>
+            <Class IRI="Alto"/>
+            <Class IRI="Bajo"/>
+            <Class IRI="Medio"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="Aceite"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeGirasol"/>
+        <Class IRI="Aceite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeGirasol"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeMaiz"/>
+        <Class IRI="Aceite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeMaiz"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeOliva"/>
+        <Class IRI="Aceite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeOliva"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeSoya"/>
+        <Class IRI="Aceite"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="AceitedeSoya"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Agua"/>
+        <Class IRI="Liquido"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ajinomoto"/>
+        <Class IRI="Condimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ajinomoto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ajo"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ajo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Albahaca"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Albahaca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alberjita"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alberjita"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alfredo"/>
+        <Class IRI="Tallarines"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alfredo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="SalsaBlanca"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alfredo"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="de_origen"/>
+            <Class IRI="Italiana"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alfredo"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="SalsaBlanca"/>
+                <Class IRI="Tallarin"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Almendra"/>
+        <Class IRI="FrutosSecos"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Almendra"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Alto"/>
+        <Class IRI="NiveldeCalorias"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Amargo"/>
+        <Class IRI="Sabor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Arroz"/>
+        <Class IRI="Cereal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Avena"/>
+        <Class IRI="Cereal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Bajo"/>
+        <Class IRI="NiveldeCalorias"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Bolognesa"/>
+        <Class IRI="Tallarines"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Bolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="SalsaBolognesa"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Bolognesa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="de_origen"/>
+            <Class IRI="Italiana"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Bolognesa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="SalsaBolognesa"/>
+                <Class IRI="Tallarin"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Camote"/>
+        <Class IRI="Tuberculo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Camote"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Carne"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Carne"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Cebolla"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Cebolla"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Cereal"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Comino"/>
+        <Class IRI="Condimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Comino"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Condimento"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Dulce"/>
+        <Class IRI="Sabor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Embutido"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Española"/>
+        <Class IRI="TipoReceta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="FrutosSecos"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Girasol"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Girasol"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Harina"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HarinadeMaiz"/>
+        <Class IRI="Harina"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HarinadeMaiz"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HarinadeSoya"/>
+        <Class IRI="Harina"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HarinadeSoya"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Huevo"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Huevo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelSabor"/>
+            <Class IRI="Amargo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HuevodeCodorniz"/>
+        <Class IRI="Huevo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HuevodeCodorniz"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HuevodeGallina"/>
+        <Class IRI="Huevo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="HuevodeGallina"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Insípido"/>
+        <Class IRI="Sabor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Italiana"/>
+        <Class IRI="TipoReceta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Jamon"/>
+        <Class IRI="Embutido"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Jamon"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Jamonada"/>
+        <Class IRI="Embutido"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Jamonada"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Japonesa"/>
+        <Class IRI="TipoReceta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Lasagna"/>
+        <Class IRI="Pasta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Leche"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LechedeSoya"/>
+        <Class IRI="Leche"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LechedeSoya"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LechedeVaca"/>
+        <Class IRI="Leche"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LechedeVaca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Lechuga"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Lechuga"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Limon"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Limon"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Liquido"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LomoSaltado"/>
+        <Class IRI="Receta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LomoSaltado"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="de_origen"/>
+            <Class IRI="Peruana"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="LomoSaltado"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="Cebolla"/>
+                <Class IRI="Papa"/>
+                <Class IRI="Res"/>
+                <Class IRI="Tomate"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Maiz"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Maiz"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushi"/>
+        <Class IRI="Receta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushi"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="de_origen"/>
+            <Class IRI="Japonesa"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <Class IRI="MakiSushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Arroz"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Nori"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Pescado"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="QuesoCrema"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Zanahoria"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiCaliforniaRoll"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="Arroz"/>
+                <Class IRI="Nori"/>
+                <Class IRI="Pescado"/>
+                <Class IRI="QuesoCrema"/>
+                <Class IRI="Zanahoria"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiPalta"/>
+        <Class IRI="MakiSushi"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiPalta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Arroz"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiPalta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Nori"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiPalta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Palta"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiPalta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Zanahoria"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MakiSushiPalta"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="Arroz"/>
+                <Class IRI="Nori"/>
+                <Class IRI="Palta"/>
+                <Class IRI="Zanahoria"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Mani"/>
+        <Class IRI="FrutosSecos"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Mani"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Mantequilla"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MantequilladeLecheVaca"/>
+        <Class IRI="Mantequilla"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MantequilladeLecheVaca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MantequilladeManí"/>
+        <Class IRI="Mantequilla"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="MantequilladeManí"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Alto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Marisco"/>
+        <Class IRI="Carne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Marisco"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Medio"/>
+        <Class IRI="NiveldeCalorias"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Mozzarella"/>
+        <Class IRI="Queso"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Mozzarella"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="NiveldeCalorias"/>
+        <Class IRI="Nivel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="NiveldeSabor"/>
+        <Class IRI="Nivel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Nori"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Nuez"/>
+        <Class IRI="FrutosSecos"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Nuez"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="NuezMoscada"/>
+        <Class IRI="Condimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="NuezMoscada"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Olivo"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Olivo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Palta"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Papa"/>
+        <Class IRI="Tuberculo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Papa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Parmesano"/>
+        <Class IRI="Queso"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Parmesano"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pasas"/>
+        <Class IRI="FrutosSecos"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pasas"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pasta"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Peruana"/>
+        <Class IRI="TipoReceta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pescado"/>
+        <Class IRI="Carne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pescado"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pesto"/>
+        <Class IRI="Tallarines"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pesto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="SalsaPesto"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pesto"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="de_origen"/>
+            <Class IRI="Italiana"/>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pesto"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="SalsaPesto"/>
+                <Class IRI="Tallarin"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Picante"/>
+        <Class IRI="Sabor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pimienta"/>
+        <Class IRI="Condimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pimienta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pituca"/>
+        <Class IRI="Tuberculo"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pollo"/>
+        <Class IRI="Carne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Pollo"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Queso"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="QuesoCrema"/>
+        <Class IRI="Queso"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Receta"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Ingrediente"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Res"/>
+        <Class IRI="Carne"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Res"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Sal"/>
+        <Class IRI="Condimento"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Sal"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Salado"/>
+        <Class IRI="Sabor"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Salsa"/>
+        <Class IRI="Receta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <Class IRI="Salsa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="HarinadeMaiz"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Jamon"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="LechedeVaca"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="MantequilladeLecheVaca"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Parmesano"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Pimienta"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Sal"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBlanca"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="HarinadeMaiz"/>
+                <Class IRI="Jamon"/>
+                <Class IRI="LechedeVaca"/>
+                <Class IRI="MantequilladeLecheVaca"/>
+                <Class IRI="Parmesano"/>
+                <Class IRI="Pimienta"/>
+                <Class IRI="Sal"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <Class IRI="Salsa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Cebolla"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Res"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Sal"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Tomate"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Vino"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Zanahoria"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaBolognesa"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="Cebolla"/>
+                <Class IRI="Res"/>
+                <Class IRI="Sal"/>
+                <Class IRI="Tomate"/>
+                <Class IRI="Vino"/>
+                <Class IRI="Zanahoria"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <Class IRI="Salsa"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="AceitedeOliva"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Ajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Albahaca"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Almendra"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Parmesano"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="SalsaPesto"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <ObjectUnionOf>
+                <Class IRI="AceitedeOliva"/>
+                <Class IRI="Ajo"/>
+                <Class IRI="Albahaca"/>
+                <Class IRI="Almendra"/>
+                <Class IRI="Parmesano"/>
+            </ObjectUnionOf>
+        </ObjectAllValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Soya"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Soya"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tallarin"/>
+        <Class IRI="Pasta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tallarin"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tallarines"/>
+        <Class IRI="Receta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tallarines"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="tiene_ingrediente"/>
+            <Class IRI="Tallarin"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Toffu"/>
+        <Class IRI="Queso"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Toffu"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Medio"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tomate"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tomate"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Tuberculo"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Vegetal"/>
+        <Class IRI="Ingrediente"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Vegetariana"/>
+        <Class IRI="Receta"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Vino"/>
+        <Class IRI="Liquido"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Vino"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Zanahoria"/>
+        <Class IRI="Vegetal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Zanahoria"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="nivelCalorias"/>
+            <Class IRI="Bajo"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="Ácido"/>
+        <Class IRI="Sabor"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="Aceite"/>
+        <Class IRI="Carne"/>
+        <Class IRI="Cereal"/>
+        <Class IRI="Condimento"/>
+        <Class IRI="Embutido"/>
+        <Class IRI="FrutosSecos"/>
+        <Class IRI="Harina"/>
+        <Class IRI="Huevo"/>
+        <Class IRI="Leche"/>
+        <Class IRI="Liquido"/>
+        <Class IRI="Mantequilla"/>
+        <Class IRI="Pasta"/>
+        <Class IRI="Queso"/>
+        <Class IRI="Tuberculo"/>
+        <Class IRI="Vegetal"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="AceitedeGirasol"/>
+        <Class IRI="AceitedeMaiz"/>
+        <Class IRI="AceitedeOliva"/>
+        <Class IRI="AceitedeSoya"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Agua"/>
+        <Class IRI="Vino"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Ajinomoto"/>
+        <Class IRI="Comino"/>
+        <Class IRI="NuezMoscada"/>
+        <Class IRI="Pimienta"/>
+        <Class IRI="Sal"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Ajo"/>
+        <Class IRI="Albahaca"/>
+        <Class IRI="Alberjita"/>
+        <Class IRI="Cebolla"/>
+        <Class IRI="Girasol"/>
+        <Class IRI="Lechuga"/>
+        <Class IRI="Limon"/>
+        <Class IRI="Maiz"/>
+        <Class IRI="Olivo"/>
+        <Class IRI="Soya"/>
+        <Class IRI="Tomate"/>
+        <Class IRI="Zanahoria"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Alfredo"/>
+        <Class IRI="Bolognesa"/>
+        <Class IRI="Pesto"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Almendra"/>
+        <Class IRI="Mani"/>
+        <Class IRI="Nuez"/>
+        <Class IRI="Pasas"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Amargo"/>
+        <Class IRI="Dulce"/>
+        <Class IRI="Picante"/>
+        <Class IRI="Salado"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Arroz"/>
+        <Class IRI="Avena"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Camote"/>
+        <Class IRI="Papa"/>
+        <Class IRI="Pituca"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Cebolla"/>
+        <Class IRI="Lechuga"/>
+        <Class IRI="Tomate"/>
+        <Class IRI="Zanahoria"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Española"/>
+        <Class IRI="Italiana"/>
+        <Class IRI="Japonesa"/>
+        <Class IRI="Peruana"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="HarinadeMaiz"/>
+        <Class IRI="HarinadeSoya"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="HuevodeCodorniz"/>
+        <Class IRI="HuevodeGallina"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Jamon"/>
+        <Class IRI="Jamonada"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Lasagna"/>
+        <Class IRI="Tallarin"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="LechedeSoya"/>
+        <Class IRI="LechedeVaca"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="LomoSaltado"/>
+        <Class IRI="MakiSushi"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="LomoSaltado"/>
+        <Class IRI="MakiSushi"/>
+        <Class IRI="Salsa"/>
+        <Class IRI="Tallarines"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="LomoSaltado"/>
+        <Class IRI="Tallarines"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="MantequilladeLecheVaca"/>
+        <Class IRI="MantequilladeManí"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Marisco"/>
+        <Class IRI="Pescado"/>
+        <Class IRI="Pollo"/>
+        <Class IRI="Res"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Mozzarella"/>
+        <Class IRI="Parmesano"/>
+        <Class IRI="Toffu"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Pescado"/>
+        <Class IRI="Pollo"/>
+        <Class IRI="Res"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="Pollo"/>
+        <Class IRI="Res"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="SalsaBlanca"/>
+        <Class IRI="SalsaBolognesa"/>
+        <Class IRI="SalsaPesto"/>
+    </DisjointClasses>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="tiene_ingrediente"/>
+        <ObjectProperty IRI="es_ingrediente_de"/>
+    </InverseObjectProperties>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="tiene_ingrediente"/>
+    </TransitiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="de_origen"/>
+        <Class IRI="Receta"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="es_ingrediente_de"/>
+        <Class IRI="Ingrediente"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="tiene_ingrediente"/>
+        <Class IRI="Receta"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="de_origen"/>
+        <Class IRI="TipoReceta"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="es_ingrediente_de"/>
+        <Class IRI="Receta"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="nivelCalorias"/>
+        <Class IRI="NiveldeCalorias"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="tiene_ingrediente"/>
+        <Class IRI="Ingrediente"/>
+    </ObjectPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Ingrediente</IRI>
+        <Literal datatypeIRI="&xsd;string">Insumo de una receta</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Receta</IRI>
+        <Literal datatypeIRI="&xsd;string">Es el plato que puede ser preparado con un conjunto de ingredientes</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>Sabor</IRI>
+        <Literal datatypeIRI="&xsd;string">El sabor que tiene un tipo de ingrediente.  Los ingredientes tienen por lo menos 1 sabor.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>TipoReceta</IRI>
+        <Literal datatypeIRI="&xsd;string">Localidad a la que se atribuye una receta</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

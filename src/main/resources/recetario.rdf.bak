@@ -1,0 +1,1748 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY recetario "http://www.recetario.com/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+<rdf:RDF xmlns="&recetario;"
+     xml:base="&recetario;"
+     xmlns:rdf="&rdf;"
+     xmlns:owl="&owl;"
+     xmlns:xsd="&xsd;"
+     xmlns:rdfs="&rdfs;">
+    <Ontology rdf:about="&recetario;">
+        <rdfs:comment rdf:datatype="&xsd;string">Ontología de recetas de comida</rdfs:comment>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- &recetario;de_origen -->
+
+    <ObjectProperty rdf:about="&recetario;de_origen">
+        <rdfs:domain rdf:resource="&recetario;Receta"/>
+        <rdfs:range rdf:resource="&recetario;TipoReceta"/>
+    </ObjectProperty>
+    
+
+
+    <!-- &recetario;es_ingrediente_de -->
+
+    <ObjectProperty rdf:about="&recetario;es_ingrediente_de">
+        <rdfs:domain rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:range rdf:resource="&recetario;Receta"/>
+    </ObjectProperty>
+    
+
+
+    <!-- &recetario;nivelCalorias -->
+
+    <ObjectProperty rdf:about="&recetario;nivelCalorias">
+        <rdfs:range rdf:resource="&recetario;NiveldeCalorias"/>
+    </ObjectProperty>
+    
+
+
+    <!-- &recetario;nivelSabor -->
+
+    <ObjectProperty rdf:about="&recetario;nivelSabor"/>
+    
+
+
+    <!-- &recetario;tiene_ingrediente -->
+
+    <ObjectProperty rdf:about="&recetario;tiene_ingrediente">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:domain rdf:resource="&recetario;Receta"/>
+        <inverseOf rdf:resource="&recetario;es_ingrediente_de"/>
+    </ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- &recetario;Aceite -->
+
+    <Class rdf:about="&recetario;Aceite">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;AceitedeGirasol -->
+
+    <Class rdf:about="&recetario;AceitedeGirasol">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;AceitedeMaiz -->
+
+    <Class rdf:about="&recetario;AceitedeMaiz">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;AceitedeOliva -->
+
+    <Class rdf:about="&recetario;AceitedeOliva">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;AceitedeSoya -->
+
+    <Class rdf:about="&recetario;AceitedeSoya">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Agua -->
+
+    <Class rdf:about="&recetario;Agua">
+        <rdfs:subClassOf rdf:resource="&recetario;Liquido"/>
+        <disjointWith rdf:resource="&recetario;Vino"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Ajinomoto -->
+
+    <Class rdf:about="&recetario;Ajinomoto">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Ajo -->
+
+    <Class rdf:about="&recetario;Ajo">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Albahaca -->
+
+    <Class rdf:about="&recetario;Albahaca">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Alberjita -->
+
+    <Class rdf:about="&recetario;Alberjita">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Alfredo -->
+
+    <Class rdf:about="&recetario;Alfredo">
+        <rdfs:subClassOf rdf:resource="&recetario;Tallarines"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;de_origen"/>
+                <allValuesFrom rdf:resource="&recetario;Italiana"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;SalsaBlanca"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;SalsaBlanca"/>
+                            <rdf:Description rdf:about="&recetario;Tallarin"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Almendra -->
+
+    <Class rdf:about="&recetario;Almendra">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;AltasCalorias -->
+
+    <Class rdf:about="&recetario;AltasCalorias">
+    </Class>
+    
+
+
+    <!-- &recetario;Alto -->
+
+    <Class rdf:about="&recetario;Alto">
+        <rdfs:subClassOf rdf:resource="&recetario;NiveldeCalorias"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Amargo -->
+
+    <Class rdf:about="&recetario;Amargo">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Arroz -->
+
+    <Class rdf:about="&recetario;Arroz">
+        <rdfs:subClassOf rdf:resource="&recetario;Cereal"/>
+        <disjointWith rdf:resource="&recetario;Avena"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Avena -->
+
+    <Class rdf:about="&recetario;Avena">
+        <rdfs:subClassOf rdf:resource="&recetario;Cereal"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Bajo -->
+
+    <Class rdf:about="&recetario;Bajo">
+        <rdfs:subClassOf rdf:resource="&recetario;NiveldeCalorias"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Bolognesa -->
+
+    <Class rdf:about="&recetario;Bolognesa">
+        <rdfs:subClassOf rdf:resource="&recetario;Tallarines"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;de_origen"/>
+                <allValuesFrom rdf:resource="&recetario;Italiana"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;SalsaBolognesa"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;SalsaBolognesa"/>
+                            <rdf:Description rdf:about="&recetario;Tallarin"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Camote -->
+
+    <Class rdf:about="&recetario;Camote">
+        <rdfs:subClassOf rdf:resource="&recetario;Tuberculo"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Carne -->
+
+    <Class rdf:about="&recetario;Carne">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Cebolla -->
+
+    <Class rdf:about="&recetario;Cebolla">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Cereal -->
+
+    <Class rdf:about="&recetario;Cereal">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Comino -->
+
+    <Class rdf:about="&recetario;Comino">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Condimento -->
+
+    <Class rdf:about="&recetario;Condimento">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Dulce -->
+
+    <Class rdf:about="&recetario;Dulce">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Embutido -->
+
+    <Class rdf:about="&recetario;Embutido">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Española -->
+
+    <Class rdf:about="&recetario;Española">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </Class>
+    
+
+
+    <!-- &recetario;FrutosSecos -->
+
+    <Class rdf:about="&recetario;FrutosSecos">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Girasol -->
+
+    <Class rdf:about="&recetario;Girasol">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Harina -->
+
+    <Class rdf:about="&recetario;Harina">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;HarinadeMaiz -->
+
+    <Class rdf:about="&recetario;HarinadeMaiz">
+        <rdfs:subClassOf rdf:resource="&recetario;Harina"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;HarinadeSoya"/>
+    </Class>
+    
+
+
+    <!-- &recetario;HarinadeSoya -->
+
+    <Class rdf:about="&recetario;HarinadeSoya">
+        <rdfs:subClassOf rdf:resource="&recetario;Harina"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Huevo -->
+
+    <Class rdf:about="&recetario;Huevo">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelSabor"/>
+                <someValuesFrom rdf:resource="&recetario;Amargo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;HuevodeCodorniz -->
+
+    <Class rdf:about="&recetario;HuevodeCodorniz">
+        <rdfs:subClassOf rdf:resource="&recetario;Huevo"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;HuevodeGallina"/>
+    </Class>
+    
+
+
+    <!-- &recetario;HuevodeGallina -->
+
+    <Class rdf:about="&recetario;HuevodeGallina">
+        <rdfs:subClassOf rdf:resource="&recetario;Huevo"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Ingrediente -->
+
+    <Class rdf:about="&recetario;Ingrediente">
+        <rdfs:comment rdf:datatype="&xsd;string">Insumo de una receta</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- &recetario;Insípido -->
+
+    <Class rdf:about="&recetario;Insípido">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Italiana -->
+
+    <Class rdf:about="&recetario;Italiana">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Jamon -->
+
+    <Class rdf:about="&recetario;Jamon">
+        <rdfs:subClassOf rdf:resource="&recetario;Embutido"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;Jamonada"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Jamonada -->
+
+    <Class rdf:about="&recetario;Jamonada">
+        <rdfs:subClassOf rdf:resource="&recetario;Embutido"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Japonesa -->
+
+    <Class rdf:about="&recetario;Japonesa">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Lasagna -->
+
+    <Class rdf:about="&recetario;Lasagna">
+        <rdfs:subClassOf rdf:resource="&recetario;Pasta"/>
+        <disjointWith rdf:resource="&recetario;Tallarin"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Leche -->
+
+    <Class rdf:about="&recetario;Leche">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;LechedeSoya -->
+
+    <Class rdf:about="&recetario;LechedeSoya">
+        <rdfs:subClassOf rdf:resource="&recetario;Leche"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;LechedeVaca"/>
+    </Class>
+    
+
+
+    <!-- &recetario;LechedeVaca -->
+
+    <Class rdf:about="&recetario;LechedeVaca">
+        <rdfs:subClassOf rdf:resource="&recetario;Leche"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Lechuga -->
+
+    <Class rdf:about="&recetario;Lechuga">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Limon -->
+
+    <Class rdf:about="&recetario;Limon">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Liquido -->
+
+    <Class rdf:about="&recetario;Liquido">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;LomoSaltado -->
+
+    <Class rdf:about="&recetario;LomoSaltado">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Cebolla"/>
+                            <rdf:Description rdf:about="&recetario;Papa"/>
+                            <rdf:Description rdf:about="&recetario;Res"/>
+                            <rdf:Description rdf:about="&recetario;Tomate"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;de_origen"/>
+                <someValuesFrom rdf:resource="&recetario;Peruana"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;MakiSushi"/>
+        <disjointWith rdf:resource="&recetario;Tallarines"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Maiz -->
+
+    <Class rdf:about="&recetario;Maiz">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;MakiSushi -->
+
+    <Class rdf:about="&recetario;MakiSushi">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;de_origen"/>
+                <allValuesFrom rdf:resource="&recetario;Japonesa"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;MakiSushiCaliforniaRoll -->
+
+    <Class rdf:about="&recetario;MakiSushiCaliforniaRoll">
+        <rdfs:subClassOf rdf:resource="&recetario;MakiSushi"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Zanahoria"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Arroz"/>
+                            <rdf:Description rdf:about="&recetario;Nori"/>
+                            <rdf:Description rdf:about="&recetario;Pescado"/>
+                            <rdf:Description rdf:about="&recetario;QuesoCrema"/>
+                            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Pescado"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Nori"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;QuesoCrema"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Arroz"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;MakiSushiPalta -->
+
+    <Class rdf:about="&recetario;MakiSushiPalta">
+        <rdfs:subClassOf rdf:resource="&recetario;MakiSushi"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Arroz"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Nori"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Zanahoria"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Palta"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Arroz"/>
+                            <rdf:Description rdf:about="&recetario;Nori"/>
+                            <rdf:Description rdf:about="&recetario;Palta"/>
+                            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Mani -->
+
+    <Class rdf:about="&recetario;Mani">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Mantequilla -->
+
+    <Class rdf:about="&recetario;Mantequilla">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;MantequilladeLecheVaca -->
+
+    <Class rdf:about="&recetario;MantequilladeLecheVaca">
+        <rdfs:subClassOf rdf:resource="&recetario;Mantequilla"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;MantequilladeManí"/>
+    </Class>
+    
+
+
+    <!-- &recetario;MantequilladeManí -->
+
+    <Class rdf:about="&recetario;MantequilladeManí">
+        <rdfs:subClassOf rdf:resource="&recetario;Mantequilla"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Alto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Marisco -->
+
+    <Class rdf:about="&recetario;Marisco">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Medio -->
+
+    <Class rdf:about="&recetario;Medio">
+        <rdfs:subClassOf rdf:resource="&recetario;NiveldeCalorias"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Mozzarella -->
+
+    <Class rdf:about="&recetario;Mozzarella">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Nivel -->
+
+    <Class rdf:about="&recetario;Nivel"/>
+    
+
+
+    <!-- &recetario;NiveldeCalorias -->
+
+    <Class rdf:about="&recetario;NiveldeCalorias">
+        <equivalentClass>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&recetario;Alto"/>
+                    <rdf:Description rdf:about="&recetario;Bajo"/>
+                    <rdf:Description rdf:about="&recetario;Medio"/>
+                </unionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&recetario;Nivel"/>
+    </Class>
+    
+
+
+    <!-- &recetario;NiveldeSabor -->
+
+    <Class rdf:about="&recetario;NiveldeSabor">
+        <equivalentClass>
+            <Class>
+                <unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&recetario;Alto"/>
+                    <rdf:Description rdf:about="&recetario;Bajo"/>
+                    <rdf:Description rdf:about="&recetario;Medio"/>
+                </unionOf>
+            </Class>
+        </equivalentClass>
+        <rdfs:subClassOf rdf:resource="&recetario;Nivel"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Nori -->
+
+    <Class rdf:about="&recetario;Nori">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Nuez -->
+
+    <Class rdf:about="&recetario;Nuez">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;NuezMoscada -->
+
+    <Class rdf:about="&recetario;NuezMoscada">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Olivo -->
+
+    <Class rdf:about="&recetario;Olivo">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Palta -->
+
+    <Class rdf:about="&recetario;Palta">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Papa -->
+
+    <Class rdf:about="&recetario;Papa">
+        <rdfs:subClassOf rdf:resource="&recetario;Tuberculo"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Parmesano -->
+
+    <Class rdf:about="&recetario;Parmesano">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Pasas -->
+
+    <Class rdf:about="&recetario;Pasas">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Pasta -->
+
+    <Class rdf:about="&recetario;Pasta">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Peruana -->
+
+    <Class rdf:about="&recetario;Peruana">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Pescado -->
+
+    <Class rdf:about="&recetario;Pescado">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Pesto -->
+
+    <Class rdf:about="&recetario;Pesto">
+        <rdfs:subClassOf rdf:resource="&recetario;Tallarines"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;SalsaPesto"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;SalsaPesto"/>
+                            <rdf:Description rdf:about="&recetario;Tallarin"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;de_origen"/>
+                <allValuesFrom rdf:resource="&recetario;Italiana"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Picante -->
+
+    <Class rdf:about="&recetario;Picante">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Pimienta -->
+
+    <Class rdf:about="&recetario;Pimienta">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Pituca -->
+
+    <Class rdf:about="&recetario;Pituca">
+        <rdfs:subClassOf rdf:resource="&recetario;Tuberculo"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Pollo -->
+
+    <Class rdf:about="&recetario;Pollo">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;Res"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Queso -->
+
+    <Class rdf:about="&recetario;Queso">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;QuesoCrema -->
+
+    <Class rdf:about="&recetario;QuesoCrema">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Receta -->
+
+    <Class rdf:about="&recetario;Receta">
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Ingrediente"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Es el plato que puede ser preparado con un conjunto de ingredientes</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- &recetario;Res -->
+
+    <Class rdf:about="&recetario;Res">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Sabor -->
+
+    <Class rdf:about="&recetario;Sabor">
+        <rdfs:comment rdf:datatype="&xsd;string">El sabor que tiene un tipo de ingrediente.  Los ingredientes tienen por lo menos 1 sabor.</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- &recetario;Sal -->
+
+    <Class rdf:about="&recetario;Sal">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Salado -->
+
+    <Class rdf:about="&recetario;Salado">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Salsa -->
+
+    <Class rdf:about="&recetario;Salsa">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+    </Class>
+    
+
+
+    <!-- &recetario;SalsaBlanca -->
+
+    <Class rdf:about="&recetario;SalsaBlanca">
+        <rdfs:subClassOf rdf:resource="&recetario;Salsa"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Sal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;MantequilladeLecheVaca"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;HarinadeMaiz"/>
+                            <rdf:Description rdf:about="&recetario;Jamon"/>
+                            <rdf:Description rdf:about="&recetario;LechedeVaca"/>
+                            <rdf:Description rdf:about="&recetario;MantequilladeLecheVaca"/>
+                            <rdf:Description rdf:about="&recetario;Parmesano"/>
+                            <rdf:Description rdf:about="&recetario;Pimienta"/>
+                            <rdf:Description rdf:about="&recetario;Sal"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;LechedeVaca"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Parmesano"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;HarinadeMaiz"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Pimienta"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Jamon"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;SalsaBolognesa -->
+
+    <Class rdf:about="&recetario;SalsaBolognesa">
+        <rdfs:subClassOf rdf:resource="&recetario;Salsa"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Res"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Cebolla"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Tomate"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Vino"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Cebolla"/>
+                            <rdf:Description rdf:about="&recetario;Res"/>
+                            <rdf:Description rdf:about="&recetario;Sal"/>
+                            <rdf:Description rdf:about="&recetario;Tomate"/>
+                            <rdf:Description rdf:about="&recetario;Vino"/>
+                            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Sal"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Zanahoria"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;SalsaPesto -->
+
+    <Class rdf:about="&recetario;SalsaPesto">
+        <rdfs:subClassOf rdf:resource="&recetario;Salsa"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Almendra"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;AceitedeOliva"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Parmesano"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <allValuesFrom>
+                    <Class>
+                        <unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;AceitedeOliva"/>
+                            <rdf:Description rdf:about="&recetario;Ajo"/>
+                            <rdf:Description rdf:about="&recetario;Albahaca"/>
+                            <rdf:Description rdf:about="&recetario;Almendra"/>
+                            <rdf:Description rdf:about="&recetario;Parmesano"/>
+                        </unionOf>
+                    </Class>
+                </allValuesFrom>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Ajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Albahaca"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Soya -->
+
+    <Class rdf:about="&recetario;Soya">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Tallarin -->
+
+    <Class rdf:about="&recetario;Tallarin">
+        <rdfs:subClassOf rdf:resource="&recetario;Pasta"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Tallarines -->
+
+    <Class rdf:about="&recetario;Tallarines">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <someValuesFrom rdf:resource="&recetario;Tallarin"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;TipoReceta -->
+
+    <Class rdf:about="&recetario;TipoReceta">
+        <rdfs:comment rdf:datatype="&xsd;string">Localidad a la que se atribuye una receta</rdfs:comment>
+    </Class>
+    
+
+
+    <!-- &recetario;Toffu -->
+
+    <Class rdf:about="&recetario;Toffu">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Medio"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Tomate -->
+
+    <Class rdf:about="&recetario;Tomate">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Tuberculo -->
+
+    <Class rdf:about="&recetario;Tuberculo">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Vegetal -->
+
+    <Class rdf:about="&recetario;Vegetal">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Vegetariana -->
+
+    <Class rdf:about="&recetario;Vegetariana">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+    </Class>
+    
+
+
+    <!-- &recetario;Vino -->
+
+    <Class rdf:about="&recetario;Vino">
+        <rdfs:subClassOf rdf:resource="&recetario;Liquido"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Zanahoria -->
+
+    <Class rdf:about="&recetario;Zanahoria">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <Restriction>
+                <onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </Restriction>
+        </rdfs:subClassOf>
+    </Class>
+    
+
+
+    <!-- &recetario;Ácido -->
+
+    <Class rdf:about="&recetario;Ácido">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Ajinomoto"/>
+            <rdf:Description rdf:about="&recetario;Comino"/>
+            <rdf:Description rdf:about="&recetario;NuezMoscada"/>
+            <rdf:Description rdf:about="&recetario;Pimienta"/>
+            <rdf:Description rdf:about="&recetario;Sal"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Aceite"/>
+            <rdf:Description rdf:about="&recetario;Carne"/>
+            <rdf:Description rdf:about="&recetario;Cereal"/>
+            <rdf:Description rdf:about="&recetario;Condimento"/>
+            <rdf:Description rdf:about="&recetario;Embutido"/>
+            <rdf:Description rdf:about="&recetario;FrutosSecos"/>
+            <rdf:Description rdf:about="&recetario;Harina"/>
+            <rdf:Description rdf:about="&recetario;Huevo"/>
+            <rdf:Description rdf:about="&recetario;Leche"/>
+            <rdf:Description rdf:about="&recetario;Liquido"/>
+            <rdf:Description rdf:about="&recetario;Mantequilla"/>
+            <rdf:Description rdf:about="&recetario;Pasta"/>
+            <rdf:Description rdf:about="&recetario;Queso"/>
+            <rdf:Description rdf:about="&recetario;Tuberculo"/>
+            <rdf:Description rdf:about="&recetario;Vegetal"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Española"/>
+            <rdf:Description rdf:about="&recetario;Italiana"/>
+            <rdf:Description rdf:about="&recetario;Japonesa"/>
+            <rdf:Description rdf:about="&recetario;Peruana"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Cebolla"/>
+            <rdf:Description rdf:about="&recetario;Lechuga"/>
+            <rdf:Description rdf:about="&recetario;Tomate"/>
+            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Mozzarella"/>
+            <rdf:Description rdf:about="&recetario;Parmesano"/>
+            <rdf:Description rdf:about="&recetario;Toffu"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;AceitedeGirasol"/>
+            <rdf:Description rdf:about="&recetario;AceitedeMaiz"/>
+            <rdf:Description rdf:about="&recetario;AceitedeOliva"/>
+            <rdf:Description rdf:about="&recetario;AceitedeSoya"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Ajo"/>
+            <rdf:Description rdf:about="&recetario;Albahaca"/>
+            <rdf:Description rdf:about="&recetario;Alberjita"/>
+            <rdf:Description rdf:about="&recetario;Cebolla"/>
+            <rdf:Description rdf:about="&recetario;Girasol"/>
+            <rdf:Description rdf:about="&recetario;Lechuga"/>
+            <rdf:Description rdf:about="&recetario;Limon"/>
+            <rdf:Description rdf:about="&recetario;Maiz"/>
+            <rdf:Description rdf:about="&recetario;Olivo"/>
+            <rdf:Description rdf:about="&recetario;Soya"/>
+            <rdf:Description rdf:about="&recetario;Tomate"/>
+            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Camote"/>
+            <rdf:Description rdf:about="&recetario;Papa"/>
+            <rdf:Description rdf:about="&recetario;Pituca"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;SalsaBlanca"/>
+            <rdf:Description rdf:about="&recetario;SalsaBolognesa"/>
+            <rdf:Description rdf:about="&recetario;SalsaPesto"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Pescado"/>
+            <rdf:Description rdf:about="&recetario;Pollo"/>
+            <rdf:Description rdf:about="&recetario;Res"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;LomoSaltado"/>
+            <rdf:Description rdf:about="&recetario;MakiSushi"/>
+            <rdf:Description rdf:about="&recetario;Salsa"/>
+            <rdf:Description rdf:about="&recetario;Tallarines"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Almendra"/>
+            <rdf:Description rdf:about="&recetario;Mani"/>
+            <rdf:Description rdf:about="&recetario;Nuez"/>
+            <rdf:Description rdf:about="&recetario;Pasas"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Amargo"/>
+            <rdf:Description rdf:about="&recetario;Dulce"/>
+            <rdf:Description rdf:about="&recetario;Picante"/>
+            <rdf:Description rdf:about="&recetario;Salado"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Marisco"/>
+            <rdf:Description rdf:about="&recetario;Pescado"/>
+            <rdf:Description rdf:about="&recetario;Pollo"/>
+            <rdf:Description rdf:about="&recetario;Res"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Alfredo"/>
+            <rdf:Description rdf:about="&recetario;Bolognesa"/>
+            <rdf:Description rdf:about="&recetario;Pesto"/>
+        </members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

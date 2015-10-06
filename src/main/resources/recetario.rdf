@@ -1,0 +1,1748 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY recetario "http://www.recetario.com/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+<rdf:RDF xmlns="&recetario;"
+     xml:base="&recetario;"
+     xmlns:rdf="&rdf;"
+     xmlns:owl="&owl;"
+     xmlns:xsd="&xsd;"
+     xmlns:rdfs="&rdfs;">
+    <Ontology rdf:about="&recetario;">
+        <rdfs:comment rdf:datatype="&xsd;string">Ontología de recetas de comida</rdfs:comment>
+    </Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- &recetario;de_origen -->
+
+    <owl:ObjectProperty rdf:about="&recetario;de_origen">
+        <rdfs:domain rdf:resource="&recetario;Receta"/>
+        <rdfs:range rdf:resource="&recetario;TipoReceta"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- &recetario;es_ingrediente_de -->
+
+    <owl:ObjectProperty rdf:about="&recetario;es_ingrediente_de">
+        <rdfs:domain rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:range rdf:resource="&recetario;Receta"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- &recetario;nivelCalorias -->
+
+    <owl:ObjectProperty rdf:about="&recetario;nivelCalorias">
+        <rdfs:range rdf:resource="&recetario;NiveldeCalorias"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- &recetario;nivelSabor -->
+
+    <owl:ObjectProperty rdf:about="&recetario;nivelSabor"/>
+    
+
+
+    <!-- &recetario;tiene_ingrediente -->
+
+    <owl:ObjectProperty rdf:about="&recetario;tiene_ingrediente">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:domain rdf:resource="&recetario;Receta"/>
+        <inverseOf rdf:resource="&recetario;es_ingrediente_de"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- &recetario;Aceite -->
+
+    <owl:Class rdf:about="&recetario;Aceite">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;AceitedeGirasol -->
+
+    <owl:Class rdf:about="&recetario;AceitedeGirasol">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;AceitedeMaiz -->
+
+    <owl:Class rdf:about="&recetario;AceitedeMaiz">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;AceitedeOliva -->
+
+    <owl:Class rdf:about="&recetario;AceitedeOliva">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;AceitedeSoya -->
+
+    <owl:Class rdf:about="&recetario;AceitedeSoya">
+        <rdfs:subClassOf rdf:resource="&recetario;Aceite"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Agua -->
+
+    <owl:Class rdf:about="&recetario;Agua">
+        <rdfs:subClassOf rdf:resource="&recetario;Liquido"/>
+        <disjointWith rdf:resource="&recetario;Vino"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Ajinomoto -->
+
+    <owl:Class rdf:about="&recetario;Ajinomoto">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Ajo -->
+
+    <owl:Class rdf:about="&recetario;Ajo">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Albahaca -->
+
+    <owl:Class rdf:about="&recetario;Albahaca">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Alberjita -->
+
+    <owl:Class rdf:about="&recetario;Alberjita">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Alfredo -->
+
+    <owl:Class rdf:about="&recetario;Alfredo">
+        <rdfs:subClassOf rdf:resource="&recetario;Tallarines"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;de_origen"/>
+                <owl:allValuesFrom rdf:resource="&recetario;Italiana"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;SalsaBlanca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;SalsaBlanca"/>
+                            <rdf:Description rdf:about="&recetario;Tallarin"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Almendra -->
+
+    <owl:Class rdf:about="&recetario;Almendra">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;AltasCalorias -->
+
+    <owl:Class rdf:about="&recetario;AltasCalorias">
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Alto -->
+
+    <owl:Class rdf:about="&recetario;Alto">
+        <rdfs:subClassOf rdf:resource="&recetario;NiveldeCalorias"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Amargo -->
+
+    <owl:Class rdf:about="&recetario;Amargo">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Arroz -->
+
+    <owl:Class rdf:about="&recetario;Arroz">
+        <rdfs:subClassOf rdf:resource="&recetario;Cereal"/>
+        <disjointWith rdf:resource="&recetario;Avena"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Avena -->
+
+    <owl:Class rdf:about="&recetario;Avena">
+        <rdfs:subClassOf rdf:resource="&recetario;Cereal"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Bajo -->
+
+    <owl:Class rdf:about="&recetario;Bajo">
+        <rdfs:subClassOf rdf:resource="&recetario;NiveldeCalorias"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Bolognesa -->
+
+    <owl:Class rdf:about="&recetario;Bolognesa">
+        <rdfs:subClassOf rdf:resource="&recetario;Tallarines"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;de_origen"/>
+                <owl:allValuesFrom rdf:resource="&recetario;Italiana"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;SalsaBolognesa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;SalsaBolognesa"/>
+                            <rdf:Description rdf:about="&recetario;Tallarin"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Camote -->
+
+    <owl:Class rdf:about="&recetario;Camote">
+        <rdfs:subClassOf rdf:resource="&recetario;Tuberculo"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Carne -->
+
+    <owl:Class rdf:about="&recetario;Carne">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Cebolla -->
+
+    <owl:Class rdf:about="&recetario;Cebolla">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Cereal -->
+
+    <owl:Class rdf:about="&recetario;Cereal">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Comino -->
+
+    <owl:Class rdf:about="&recetario;Comino">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Condimento -->
+
+    <owl:Class rdf:about="&recetario;Condimento">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Dulce -->
+
+    <owl:Class rdf:about="&recetario;Dulce">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Embutido -->
+
+    <owl:Class rdf:about="&recetario;Embutido">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Española -->
+
+    <owl:Class rdf:about="&recetario;Española">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;FrutosSecos -->
+
+    <owl:Class rdf:about="&recetario;FrutosSecos">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Girasol -->
+
+    <owl:Class rdf:about="&recetario;Girasol">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Harina -->
+
+    <owl:Class rdf:about="&recetario;Harina">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;HarinadeMaiz -->
+
+    <owl:Class rdf:about="&recetario;HarinadeMaiz">
+        <rdfs:subClassOf rdf:resource="&recetario;Harina"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;HarinadeSoya"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;HarinadeSoya -->
+
+    <owl:Class rdf:about="&recetario;HarinadeSoya">
+        <rdfs:subClassOf rdf:resource="&recetario;Harina"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Huevo -->
+
+    <owl:Class rdf:about="&recetario;Huevo">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelSabor"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Amargo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;HuevodeCodorniz -->
+
+    <owl:Class rdf:about="&recetario;HuevodeCodorniz">
+        <rdfs:subClassOf rdf:resource="&recetario;Huevo"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;HuevodeGallina"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;HuevodeGallina -->
+
+    <owl:Class rdf:about="&recetario;HuevodeGallina">
+        <rdfs:subClassOf rdf:resource="&recetario;Huevo"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Ingrediente -->
+
+    <owl:Class rdf:about="&recetario;Ingrediente">
+        <rdfs:comment rdf:datatype="&xsd;string">Insumo de una receta</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Insípido -->
+
+    <owl:Class rdf:about="&recetario;Insípido">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Italiana -->
+
+    <owl:Class rdf:about="&recetario;Italiana">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Jamon -->
+
+    <owl:Class rdf:about="&recetario;Jamon">
+        <rdfs:subClassOf rdf:resource="&recetario;Embutido"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;Jamonada"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Jamonada -->
+
+    <owl:Class rdf:about="&recetario;Jamonada">
+        <rdfs:subClassOf rdf:resource="&recetario;Embutido"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Japonesa -->
+
+    <owl:Class rdf:about="&recetario;Japonesa">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Lasagna -->
+
+    <owl:Class rdf:about="&recetario;Lasagna">
+        <rdfs:subClassOf rdf:resource="&recetario;Pasta"/>
+        <disjointWith rdf:resource="&recetario;Tallarin"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Leche -->
+
+    <owl:Class rdf:about="&recetario;Leche">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;LechedeSoya -->
+
+    <owl:Class rdf:about="&recetario;LechedeSoya">
+        <rdfs:subClassOf rdf:resource="&recetario;Leche"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;LechedeVaca"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;LechedeVaca -->
+
+    <owl:Class rdf:about="&recetario;LechedeVaca">
+        <rdfs:subClassOf rdf:resource="&recetario;Leche"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Lechuga -->
+
+    <owl:Class rdf:about="&recetario;Lechuga">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Limon -->
+
+    <owl:Class rdf:about="&recetario;Limon">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Liquido -->
+
+    <owl:Class rdf:about="&recetario;Liquido">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;LomoSaltado -->
+
+    <owl:Class rdf:about="&recetario;LomoSaltado">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Cebolla"/>
+                            <rdf:Description rdf:about="&recetario;Papa"/>
+                            <rdf:Description rdf:about="&recetario;Res"/>
+                            <rdf:Description rdf:about="&recetario;Tomate"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;de_origen"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Peruana"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;MakiSushi"/>
+        <disjointWith rdf:resource="&recetario;Tallarines"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Maiz -->
+
+    <owl:Class rdf:about="&recetario;Maiz">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;MakiSushi -->
+
+    <owl:Class rdf:about="&recetario;MakiSushi">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;de_origen"/>
+                <owl:allValuesFrom rdf:resource="&recetario;Japonesa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;MakiSushiCaliforniaRoll -->
+
+    <owl:Class rdf:about="&recetario;MakiSushiCaliforniaRoll">
+        <rdfs:subClassOf rdf:resource="&recetario;MakiSushi"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Zanahoria"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Arroz"/>
+                            <rdf:Description rdf:about="&recetario;Nori"/>
+                            <rdf:Description rdf:about="&recetario;Pescado"/>
+                            <rdf:Description rdf:about="&recetario;QuesoCrema"/>
+                            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Pescado"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;QuesoCrema"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Arroz"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;MakiSushiPalta -->
+
+    <owl:Class rdf:about="&recetario;MakiSushiPalta">
+        <rdfs:subClassOf rdf:resource="&recetario;MakiSushi"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Arroz"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Nori"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Zanahoria"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Palta"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Arroz"/>
+                            <rdf:Description rdf:about="&recetario;Nori"/>
+                            <rdf:Description rdf:about="&recetario;Palta"/>
+                            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Mani -->
+
+    <owl:Class rdf:about="&recetario;Mani">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Mantequilla -->
+
+    <owl:Class rdf:about="&recetario;Mantequilla">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;MantequilladeLecheVaca -->
+
+    <owl:Class rdf:about="&recetario;MantequilladeLecheVaca">
+        <rdfs:subClassOf rdf:resource="&recetario;Mantequilla"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;MantequilladeManí"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;MantequilladeManí -->
+
+    <owl:Class rdf:about="&recetario;MantequilladeManí">
+        <rdfs:subClassOf rdf:resource="&recetario;Mantequilla"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Alto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Marisco -->
+
+    <owl:Class rdf:about="&recetario;Marisco">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Medio -->
+
+    <owl:Class rdf:about="&recetario;Medio">
+        <rdfs:subClassOf rdf:resource="&recetario;NiveldeCalorias"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Mozzarella -->
+
+    <owl:Class rdf:about="&recetario;Mozzarella">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Nivel -->
+
+    <owl:Class rdf:about="&recetario;Nivel"/>
+    
+
+
+    <!-- &recetario;NiveldeCalorias -->
+
+    <owl:Class rdf:about="&recetario;NiveldeCalorias">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&recetario;Alto"/>
+                    <rdf:Description rdf:about="&recetario;Bajo"/>
+                    <rdf:Description rdf:about="&recetario;Medio"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&recetario;Nivel"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;NiveldeSabor -->
+
+    <owl:Class rdf:about="&recetario;NiveldeSabor">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&recetario;Alto"/>
+                    <rdf:Description rdf:about="&recetario;Bajo"/>
+                    <rdf:Description rdf:about="&recetario;Medio"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&recetario;Nivel"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Nori -->
+
+    <owl:Class rdf:about="&recetario;Nori">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Nuez -->
+
+    <owl:Class rdf:about="&recetario;Nuez">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;NuezMoscada -->
+
+    <owl:Class rdf:about="&recetario;NuezMoscada">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Olivo -->
+
+    <owl:Class rdf:about="&recetario;Olivo">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Palta -->
+
+    <owl:Class rdf:about="&recetario;Palta">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Papa -->
+
+    <owl:Class rdf:about="&recetario;Papa">
+        <rdfs:subClassOf rdf:resource="&recetario;Tuberculo"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Parmesano -->
+
+    <owl:Class rdf:about="&recetario;Parmesano">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pasas -->
+
+    <owl:Class rdf:about="&recetario;Pasas">
+        <rdfs:subClassOf rdf:resource="&recetario;FrutosSecos"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pasta -->
+
+    <owl:Class rdf:about="&recetario;Pasta">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Peruana -->
+
+    <owl:Class rdf:about="&recetario;Peruana">
+        <rdfs:subClassOf rdf:resource="&recetario;TipoReceta"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pescado -->
+
+    <owl:Class rdf:about="&recetario;Pescado">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pesto -->
+
+    <owl:Class rdf:about="&recetario;Pesto">
+        <rdfs:subClassOf rdf:resource="&recetario;Tallarines"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;SalsaPesto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;SalsaPesto"/>
+                            <rdf:Description rdf:about="&recetario;Tallarin"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;de_origen"/>
+                <owl:allValuesFrom rdf:resource="&recetario;Italiana"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Picante -->
+
+    <owl:Class rdf:about="&recetario;Picante">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pimienta -->
+
+    <owl:Class rdf:about="&recetario;Pimienta">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pituca -->
+
+    <owl:Class rdf:about="&recetario;Pituca">
+        <rdfs:subClassOf rdf:resource="&recetario;Tuberculo"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Pollo -->
+
+    <owl:Class rdf:about="&recetario;Pollo">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <disjointWith rdf:resource="&recetario;Res"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Queso -->
+
+    <owl:Class rdf:about="&recetario;Queso">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;QuesoCrema -->
+
+    <owl:Class rdf:about="&recetario;QuesoCrema">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Receta -->
+
+    <owl:Class rdf:about="&recetario;Receta">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Ingrediente"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">Es el plato que puede ser preparado con un conjunto de ingredientes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Res -->
+
+    <owl:Class rdf:about="&recetario;Res">
+        <rdfs:subClassOf rdf:resource="&recetario;Carne"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Sabor -->
+
+    <owl:Class rdf:about="&recetario;Sabor">
+        <rdfs:comment rdf:datatype="&xsd;string">El sabor que tiene un tipo de ingrediente.  Los ingredientes tienen por lo menos 1 sabor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Sal -->
+
+    <owl:Class rdf:about="&recetario;Sal">
+        <rdfs:subClassOf rdf:resource="&recetario;Condimento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Salado -->
+
+    <owl:Class rdf:about="&recetario;Salado">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Salsa -->
+
+    <owl:Class rdf:about="&recetario;Salsa">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;SalsaBlanca -->
+
+    <owl:Class rdf:about="&recetario;SalsaBlanca">
+        <rdfs:subClassOf rdf:resource="&recetario;Salsa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Sal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;MantequilladeLecheVaca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;HarinadeMaiz"/>
+                            <rdf:Description rdf:about="&recetario;Jamon"/>
+                            <rdf:Description rdf:about="&recetario;LechedeVaca"/>
+                            <rdf:Description rdf:about="&recetario;MantequilladeLecheVaca"/>
+                            <rdf:Description rdf:about="&recetario;Parmesano"/>
+                            <rdf:Description rdf:about="&recetario;Pimienta"/>
+                            <rdf:Description rdf:about="&recetario;Sal"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;LechedeVaca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Parmesano"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;HarinadeMaiz"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Pimienta"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Jamon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;SalsaBolognesa -->
+
+    <owl:Class rdf:about="&recetario;SalsaBolognesa">
+        <rdfs:subClassOf rdf:resource="&recetario;Salsa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Res"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Cebolla"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Tomate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Vino"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;Cebolla"/>
+                            <rdf:Description rdf:about="&recetario;Res"/>
+                            <rdf:Description rdf:about="&recetario;Sal"/>
+                            <rdf:Description rdf:about="&recetario;Tomate"/>
+                            <rdf:Description rdf:about="&recetario;Vino"/>
+                            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Sal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Zanahoria"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;SalsaPesto -->
+
+    <owl:Class rdf:about="&recetario;SalsaPesto">
+        <rdfs:subClassOf rdf:resource="&recetario;Salsa"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Almendra"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;AceitedeOliva"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Parmesano"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&recetario;AceitedeOliva"/>
+                            <rdf:Description rdf:about="&recetario;Ajo"/>
+                            <rdf:Description rdf:about="&recetario;Albahaca"/>
+                            <rdf:Description rdf:about="&recetario;Almendra"/>
+                            <rdf:Description rdf:about="&recetario;Parmesano"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Ajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Albahaca"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Soya -->
+
+    <owl:Class rdf:about="&recetario;Soya">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Tallarin -->
+
+    <owl:Class rdf:about="&recetario;Tallarin">
+        <rdfs:subClassOf rdf:resource="&recetario;Pasta"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Tallarines -->
+
+    <owl:Class rdf:about="&recetario;Tallarines">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;tiene_ingrediente"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Tallarin"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;TipoReceta -->
+
+    <owl:Class rdf:about="&recetario;TipoReceta">
+        <rdfs:comment rdf:datatype="&xsd;string">Localidad a la que se atribuye una receta</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Toffu -->
+
+    <owl:Class rdf:about="&recetario;Toffu">
+        <rdfs:subClassOf rdf:resource="&recetario;Queso"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Medio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Tomate -->
+
+    <owl:Class rdf:about="&recetario;Tomate">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Tuberculo -->
+
+    <owl:Class rdf:about="&recetario;Tuberculo">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Vegetal -->
+
+    <owl:Class rdf:about="&recetario;Vegetal">
+        <rdfs:subClassOf rdf:resource="&recetario;Ingrediente"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Vegetariana -->
+
+    <owl:Class rdf:about="&recetario;Vegetariana">
+        <rdfs:subClassOf rdf:resource="&recetario;Receta"/>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Vino -->
+
+    <owl:Class rdf:about="&recetario;Vino">
+        <rdfs:subClassOf rdf:resource="&recetario;Liquido"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Zanahoria -->
+
+    <owl:Class rdf:about="&recetario;Zanahoria">
+        <rdfs:subClassOf rdf:resource="&recetario;Vegetal"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&recetario;nivelCalorias"/>
+                <owl:someValuesFrom rdf:resource="&recetario;Bajo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- &recetario;Ácido -->
+
+    <owl:Class rdf:about="&recetario;Ácido">
+        <rdfs:subClassOf rdf:resource="&recetario;Sabor"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Ajinomoto"/>
+            <rdf:Description rdf:about="&recetario;Comino"/>
+            <rdf:Description rdf:about="&recetario;NuezMoscada"/>
+            <rdf:Description rdf:about="&recetario;Pimienta"/>
+            <rdf:Description rdf:about="&recetario;Sal"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Aceite"/>
+            <rdf:Description rdf:about="&recetario;Carne"/>
+            <rdf:Description rdf:about="&recetario;Cereal"/>
+            <rdf:Description rdf:about="&recetario;Condimento"/>
+            <rdf:Description rdf:about="&recetario;Embutido"/>
+            <rdf:Description rdf:about="&recetario;FrutosSecos"/>
+            <rdf:Description rdf:about="&recetario;Harina"/>
+            <rdf:Description rdf:about="&recetario;Huevo"/>
+            <rdf:Description rdf:about="&recetario;Leche"/>
+            <rdf:Description rdf:about="&recetario;Liquido"/>
+            <rdf:Description rdf:about="&recetario;Mantequilla"/>
+            <rdf:Description rdf:about="&recetario;Pasta"/>
+            <rdf:Description rdf:about="&recetario;Queso"/>
+            <rdf:Description rdf:about="&recetario;Tuberculo"/>
+            <rdf:Description rdf:about="&recetario;Vegetal"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Española"/>
+            <rdf:Description rdf:about="&recetario;Italiana"/>
+            <rdf:Description rdf:about="&recetario;Japonesa"/>
+            <rdf:Description rdf:about="&recetario;Peruana"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Cebolla"/>
+            <rdf:Description rdf:about="&recetario;Lechuga"/>
+            <rdf:Description rdf:about="&recetario;Tomate"/>
+            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Mozzarella"/>
+            <rdf:Description rdf:about="&recetario;Parmesano"/>
+            <rdf:Description rdf:about="&recetario;Toffu"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;AceitedeGirasol"/>
+            <rdf:Description rdf:about="&recetario;AceitedeMaiz"/>
+            <rdf:Description rdf:about="&recetario;AceitedeOliva"/>
+            <rdf:Description rdf:about="&recetario;AceitedeSoya"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Ajo"/>
+            <rdf:Description rdf:about="&recetario;Albahaca"/>
+            <rdf:Description rdf:about="&recetario;Alberjita"/>
+            <rdf:Description rdf:about="&recetario;Cebolla"/>
+            <rdf:Description rdf:about="&recetario;Girasol"/>
+            <rdf:Description rdf:about="&recetario;Lechuga"/>
+            <rdf:Description rdf:about="&recetario;Limon"/>
+            <rdf:Description rdf:about="&recetario;Maiz"/>
+            <rdf:Description rdf:about="&recetario;Olivo"/>
+            <rdf:Description rdf:about="&recetario;Soya"/>
+            <rdf:Description rdf:about="&recetario;Tomate"/>
+            <rdf:Description rdf:about="&recetario;Zanahoria"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Camote"/>
+            <rdf:Description rdf:about="&recetario;Papa"/>
+            <rdf:Description rdf:about="&recetario;Pituca"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;SalsaBlanca"/>
+            <rdf:Description rdf:about="&recetario;SalsaBolognesa"/>
+            <rdf:Description rdf:about="&recetario;SalsaPesto"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Pescado"/>
+            <rdf:Description rdf:about="&recetario;Pollo"/>
+            <rdf:Description rdf:about="&recetario;Res"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;LomoSaltado"/>
+            <rdf:Description rdf:about="&recetario;MakiSushi"/>
+            <rdf:Description rdf:about="&recetario;Salsa"/>
+            <rdf:Description rdf:about="&recetario;Tallarines"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Almendra"/>
+            <rdf:Description rdf:about="&recetario;Mani"/>
+            <rdf:Description rdf:about="&recetario;Nuez"/>
+            <rdf:Description rdf:about="&recetario;Pasas"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Amargo"/>
+            <rdf:Description rdf:about="&recetario;Dulce"/>
+            <rdf:Description rdf:about="&recetario;Picante"/>
+            <rdf:Description rdf:about="&recetario;Salado"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Marisco"/>
+            <rdf:Description rdf:about="&recetario;Pescado"/>
+            <rdf:Description rdf:about="&recetario;Pollo"/>
+            <rdf:Description rdf:about="&recetario;Res"/>
+        </members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&recetario;Alfredo"/>
+            <rdf:Description rdf:about="&recetario;Bolognesa"/>
+            <rdf:Description rdf:about="&recetario;Pesto"/>
+        </members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+
