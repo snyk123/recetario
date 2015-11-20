@@ -9,6 +9,7 @@ import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -18,6 +19,8 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
+import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
 import com.hp.hpl.jena.reasoner.Derivation;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
@@ -112,16 +115,29 @@ public class Ontology {
         return result;
     }
     
-    public ResultSet query(String sparql) {
+    public ArrayList<Statement> query(String sparql, String[] parameters) {
+        ArrayList<Statement> result = new ArrayList();
         String prefix = "prefix recetario: <" + this.NS + ">\n" +
                         "prefix rdfs: <" + RDFS.getURI() + ">\n" +
                         "prefix rdf: <" + RDF.getURI() + ">\n" +
                         "prefix owl: <" + OWL.getURI() + ">\n";
         Query query = QueryFactory.create(prefix + sparql);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, this.data)) {
-            ResultSet results = qexec.execSelect();
-            return results;
+            ResultSet rs = qexec.execSelect();
+            while(rs.hasNext()) {
+                QuerySolution qs = rs.next();
+                Resource subject = qs.getResource(parameters[0]);
+                Property property = RDFS.subClassOf;
+                Resource object = null;
+                if (parameters.length > 1) {
+                    property = new PropertyImpl(qs.getResource(parameters[1]).getURI());
+                    object = qs.getResource(parameters[2]);
+                }
+                Statement s = new StatementImpl(subject, property, object);
+                result.add(s);
+            }
         }
+        return result;
     }
     
     public Resource getResource(String name) {
