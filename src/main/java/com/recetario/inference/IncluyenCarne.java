@@ -5,7 +5,14 @@
  */
 package com.recetario.inference;
 
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
+import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
+import com.hp.hpl.jena.vocabulary.RDFS;
 import com.recetario.lib.Validator;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -22,6 +29,7 @@ public class IncluyenCarne extends Inference {
 
     @Override
     public ArrayList<Statement> search() throws FileNotFoundException, ClassCastException {
+        ArrayList<Statement> result = new ArrayList<>();
         try {
             if (ontology.validate(new Validator())) {
                 String where1 = "{ ?receta rdfs:subClassOf ?class . \n" +
@@ -51,7 +59,8 @@ public class IncluyenCarne extends Inference {
                 " } GROUP BY ?receta \n " +
                 " HAVING (count(?ingrediente) > 0) ";
                 
-                return ontology.query(query);
+                result = ontology.query(query, null);
+                
             } else {
                 return new ArrayList<>();
             }
@@ -59,6 +68,7 @@ public class IncluyenCarne extends Inference {
             ex.printStackTrace();
             throw ex;
         }
+        return result;
     }
     
 }

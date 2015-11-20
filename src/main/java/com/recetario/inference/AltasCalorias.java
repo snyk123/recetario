@@ -5,7 +5,13 @@
  */
 package com.recetario.inference;
 
+import com.hp.hpl.jena.query.QuerySolution;
+import com.hp.hpl.jena.query.ResultSet;
+import com.hp.hpl.jena.rdf.model.Property;
+import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
+import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
+import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
 import com.recetario.lib.Validator;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -22,10 +28,12 @@ public class AltasCalorias extends Inference {
 
     @Override
     public ArrayList<Statement> search() throws FileNotFoundException, ClassCastException {
+        ArrayList<Statement> result = new ArrayList<>();
         try {
             if (ontology.validate(new Validator())) {
-                String query = "select DISTINCT ?receta where { " +
+                String query = "select DISTINCT ?receta ?property ?nivel where { " +
                 " ?receta rdfs:subClassOf ?class . \n" +
+                " ?class owl:onProperty ?property . \n" +
                 " ?class owl:onProperty recetario:tiene_ingrediente . \n" +
                 " ?class owl:allValuesFrom ?allValues .\n" +
                 " ?allValues owl:unionOf ?union . \n" +
@@ -33,9 +41,10 @@ public class AltasCalorias extends Inference {
                 " ?ingrediente rdfs:subClassOf ?class2 .\n" +
                 " ?class2 owl:onProperty recetario:nivelCalorias . \n" +
                 " ?class2 owl:someValuesFrom ?nivel .\n" +
-                " FILTER (strEnds(str(?nivel), \"Alto\")) }"; 
+                " FILTER (strEnds(str(?nivel), \"Alto\") && strEnds(str(?receta), \"" + this.text2Search + "\")) }"; 
                 
-                return ontology.query(query);
+                result = ontology.query(query, null);
+                
             } else {
                 return new ArrayList<>();
             }
@@ -43,6 +52,7 @@ public class AltasCalorias extends Inference {
             ex.printStackTrace();
             throw ex;
         }
+        return result;
     }
     
 }

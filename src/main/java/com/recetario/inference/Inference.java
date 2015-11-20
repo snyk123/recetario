@@ -22,16 +22,25 @@ public abstract class Inference {
 
     protected Ontology ontology;
     
+    protected String text2Search;
+    
     public Inference(String inputRDF, String rulesFileName, String NS) {
         this.inputRDF = inputRDF;
         this.rulesFileName = rulesFileName;
         this.NS = NS;
         
-        this.ontology = new Ontology(NS);
+        this.text2Search = "";
+        
+        this.ontology = new Ontology(NS, true);
         ontology.loadModel(this.inputRDF);
         ontology.setInferenceRules(this.rulesFileName);
     }
     
-    public abstract ArrayList<Statement> search() throws FileNotFoundException, ClassCastException;
+    public ArrayList<Statement> search(String text) throws FileNotFoundException, ClassCastException {
+        this.text2Search = text;
+        return search();
+    }
+    
+    protected abstract ArrayList<Statement> search() throws FileNotFoundException, ClassCastException;
     
 }
