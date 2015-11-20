@@ -30,6 +30,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,19 +41,26 @@ import java.util.Iterator;
  */
 public class Ontology {
     
-    private Model data;
+    private final Model data;
     
-    private String NS;
+    private final String NS;
+    
+    private final boolean debug;
     
     private InfModel infModel;
 
     private Reasoner reasoner;
     
     public Ontology(String NS) {
+        this(NS, false);
+    }
+    
+    public Ontology(String NS, boolean debug) {
         this.data = ModelFactory.createDefaultModel();
         this.infModel = null; 
         this.reasoner = null;
         this.NS = NS;
+        this.debug = debug;
     }
     
     public void loadRDF (String inputFileName, String rules) {
@@ -80,7 +88,7 @@ public class Ontology {
         }
     }
     
-    public ArrayList<Statement> query(Resource subject, Property predicate, Object object, boolean showInference) throws FileNotFoundException, ClassCastException {
+    public ArrayList<Statement> query(Resource subject, Property predicate, Object object) throws FileNotFoundException, ClassCastException {
         ArrayList<Statement> result = new ArrayList();
         if (this.infModel != null) {
             StmtIterator i;
@@ -93,19 +101,16 @@ public class Ontology {
             }
             while(i.hasNext()) {
                 Statement s = i.nextStatement(); 
-                System.out.println(PrintUtil.print(s));
                 result.add(s);
-                if (showInference)
+                if (this.debug) {
+                    System.out.println(PrintUtil.print(s));
                     this.printInferenceDeviation(s);
+                }
             }
         } else {
             throw new FileNotFoundException("El archivo RDF no ha sido cargado");
         }
         return result;
-    }
-    
-    public ArrayList<Statement> query(Resource subject, Property predicate, Object object) throws FileNotFoundException, ClassCastException {
-        return this.query(subject, predicate, object, false);
     }
     
     public ArrayList<Statement> query(String sparql) {
@@ -115,13 +120,10 @@ public class Ontology {
                         "prefix rdf: <" + RDF.getURI() + ">\n" +
                         "prefix owl: <" + OWL.getURI() + ">\n";
         Query query = QueryFactory.create(prefix + sparql);
-        QueryExecution qexec = QueryExecutionFactory.create(query, this.data);
-        try {
+        try (QueryExecution qexec = QueryExecutionFactory.create(query, this.data)) {
             ResultSet results = qexec.execSelect();
-            ResultSetFormatter.out( results, this.data );
-        }
-        finally {
-            qexec.close();
+            if (this.debug)
+                ResultSetFormatter.out( results, this.data );
         }
         return result;
     }
@@ -151,11 +153,15 @@ public class Ontology {
         return data.toString();
     }
     
-    public void writeModel(String format) {
+    public void writeModel(OutputStream outputStream, String format) {
         if (this.infModel == null) {
-            this.data.write(System.out, format);
+            this.data.write(outputStream, format);
         } else {
-            this.infModel.write(System.out, format);
+            this.infModel.write(outputStream, format);
         }
+    }
+    
+    public void writeModel(String format) {
+        this.writeModel(System.out, format);
     }
 }
