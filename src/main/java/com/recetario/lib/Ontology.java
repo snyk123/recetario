@@ -9,6 +9,7 @@ import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
 import com.hp.hpl.jena.query.QueryFactory;
+import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.ResultSetFormatter;
 import com.hp.hpl.jena.rdf.model.InfModel;
@@ -19,6 +20,8 @@ import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
+import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
 import com.hp.hpl.jena.reasoner.Derivation;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.reasoner.rulesys.GenericRuleReasoner;
@@ -122,8 +125,26 @@ public class Ontology {
         Query query = QueryFactory.create(prefix + sparql);
         try (QueryExecution qexec = QueryExecutionFactory.create(query, this.data)) {
             ResultSet results = qexec.execSelect();
-            if (this.debug)
+            
+            /*
+            if (this.debug) {
                 ResultSetFormatter.out( results, this.data );
+            }
+            */
+            
+            while(results.hasNext()) {
+                QuerySolution qs = results.next();
+                Iterator<String> iNames = qs.varNames();
+                Resource subject = qs.getResource(iNames.next());
+                Property property = new PropertyImpl(qs.getResource(iNames.next()).getURI());
+                Resource object = qs.getResource(iNames.next());
+                Statement s = new StatementImpl(subject, property, object);
+                result.add(s);
+                if (this.debug) {
+                    System.out.println(PrintUtil.print(s));
+                }
+            }
+            
         }
         return result;
     }
