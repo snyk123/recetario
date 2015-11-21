@@ -45,8 +45,9 @@ public class Recetario {
         System.out.println(clases.toString());
     }
     
-    public static ArrayList<String> findRelatedClasses(String text) {
+    public static ArrayList<String> findRelatedClasses(String text2Search) {
         ArrayList<String> result;
+        text = text2Search;
         initializeInferenceList();
         result = toStrings(search());
         return result;
