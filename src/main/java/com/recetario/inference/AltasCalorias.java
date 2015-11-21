@@ -5,13 +5,7 @@
  */
 package com.recetario.inference;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
-import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
 import com.recetario.lib.Validator;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -43,10 +37,8 @@ public class AltasCalorias extends Inference {
                 " ?class2 owl:someValuesFrom ?nivel .\n" +
                 " FILTER (strEnds(str(?nivel), \"Alto\") && strEnds(str(?receta), \"" + this.text2Search + "\")) }"; 
                 
-                result = ontology.query(query, null);
+                result = ontology.query(query, new String[]{"receta", "property", "nivel"});
                 
-            } else {
-                return new ArrayList<>();
             }
         } catch (Exception ex) {
             ex.printStackTrace();

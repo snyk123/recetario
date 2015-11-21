@@ -24,18 +24,18 @@ public class Dietetica extends  Inference {
 
     @Override
     public ArrayList<Statement> search() throws FileNotFoundException, ClassCastException {
+        ArrayList<Statement> result = new ArrayList<>();
         try {
             if (ontology.validate(new Validator())) {
-                Resource object = ontology.getResource("dietetica");
-                return ontology.query(object, null, (RDFNode) null);
-                
-            } else {
-                return new ArrayList<>();
+                Resource subject = ontology.getResource("dietetica");
+                Resource object = ontology.getResource(this.text2Search);
+                result = ontology.query(subject, null, (RDFNode) object);
             }
         } catch (FileNotFoundException | ClassCastException ex) {
             ex.printStackTrace();
             throw ex;
         }
+        return result;
     }
     
 }

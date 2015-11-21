@@ -40,13 +40,15 @@ public class Recetario {
             text = args[0];
         }
         initializeInferenceList();
-        filter(search(), text);        
+        ArrayList<String> clases = toStrings(search());
+        System.out.println("-- Términos Relacionados --");
+        System.out.println(clases.toString());
     }
     
     public static ArrayList<String> findRelatedClasses(String text) {
         ArrayList<String> result;
         initializeInferenceList();
-        result = toStrings(filter(search(), text));
+        result = toStrings(search());
         return result;
     }
     
@@ -75,20 +77,28 @@ public class Recetario {
         return result;
     }
     
-    private static ArrayList<Statement> filter(ArrayList<Statement> haystack, String needle) {
-        ArrayList<Statement> result = new ArrayList<>();
-        Iterator<Statement> iterator = haystack.iterator();
+    private static ArrayList<String> toStrings(ArrayList<Statement> statements) {
+        ArrayList<String> result = new ArrayList<>();
+        Iterator<Statement> iterator = statements.iterator();
         
         System.out.println("-- Resultado de la búsqueda --");
         while (iterator.hasNext()) {
             Statement stmt = iterator.next();
+            String subject = stmt.getSubject().getLocalName();
+            String object = stmt.getResource().getLocalName();
             System.out.println(stmt.toString());
+            
+            if (subject != null) {
+                result.remove(subject);
+                result.add(subject);
+            }
+            
+            if (object != null) {
+                result.remove(object);
+                result.add(object);
+            }
         }
         return result;
-    }
-    
-    private static ArrayList<String> toStrings(ArrayList<Statement> statements) {
-        return null;
     }
     
 }

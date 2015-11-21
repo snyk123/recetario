@@ -5,15 +5,9 @@
  */
 package com.recetario.inference;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.recetario.lib.Validator;
 import java.util.ArrayList;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
-import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
 import java.io.FileNotFoundException;
 
 /**
@@ -42,10 +36,8 @@ public class SubRecetas extends Inference {
                         " ?esReceta rdfs:subClassOf recetario:Receta . \n" + 
                         " FILTER (strEnds(str(?receta), \""+ this.text2Search +"\") || strEnds(str(?subReceta), \"" + this.text2Search + "\")) } ";
                 
-                result = ontology.query(query, null);
+                result = ontology.query(query, new String[]{"receta", "property", "subReceta"});
                 
-            } else {
-                return new ArrayList<>();
             }
         } catch (Exception ex) {
             ex.printStackTrace();

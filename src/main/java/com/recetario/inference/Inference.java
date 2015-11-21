@@ -31,7 +31,7 @@ public abstract class Inference {
         
         this.text2Search = "";
         
-        this.ontology = new Ontology(NS, true);
+        this.ontology = new Ontology(NS);
         ontology.loadModel(this.inputRDF);
         ontology.setInferenceRules(this.rulesFileName);
     }

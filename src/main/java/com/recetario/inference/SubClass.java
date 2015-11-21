@@ -25,24 +25,22 @@ public class SubClass extends Inference {
 
     @Override
     public ArrayList<Statement> search() throws FileNotFoundException, ClassCastException {
+        ArrayList<Statement> result = new ArrayList<>();
         try {
             if (ontology.validate(new Validator())) {
                 Resource resource = ontology.getResource(this.text2Search);
                 ArrayList<Statement> child = ontology.query(resource, RDFS.subClassOf, (RDFNode) null);
                 ArrayList<Statement> parent = ontology.query(null, RDFS.subClassOf, resource);
-                ArrayList<Statement> result = new ArrayList<>();
                 result.removeAll(child);
                 result.addAll(child);
                 result.removeAll(parent);
                 result.addAll(parent);
-                return result;
-            } else {
-                return new ArrayList<>();
             }
         } catch (FileNotFoundException | ClassCastException ex) {
             ex.printStackTrace();
             throw ex;
         }
+        return result;
     }
     
 }

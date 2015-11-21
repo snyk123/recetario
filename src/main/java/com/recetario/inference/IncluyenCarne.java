@@ -5,14 +5,7 @@
  */
 package com.recetario.inference;
 
-import com.hp.hpl.jena.query.QuerySolution;
-import com.hp.hpl.jena.query.ResultSet;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
-import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
-import com.hp.hpl.jena.rdf.model.impl.StatementImpl;
-import com.hp.hpl.jena.vocabulary.RDFS;
 import com.recetario.lib.Validator;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -33,15 +26,17 @@ public class IncluyenCarne extends Inference {
         try {
             if (ontology.validate(new Validator())) {
                 String where1 = "{ ?receta rdfs:subClassOf ?class . \n" +
+                " ?class owl:onProperty ?property . \n" +
                 " ?class owl:onProperty recetario:tiene_ingrediente . \n" +
                 " ?class owl:allValuesFrom ?allValues .\n" +
                 " ?allValues owl:unionOf ?union . \n" +
                 " ?union rdf:rest* [ rdf:first ?ingrediente ] . \n" +
                 " ?ingrediente rdfs:subClassOf ?tipoIngrediente . \n" + 
                 " ?tipoIngrediente rdfs:subClassOf recetario:Ingrediente . \n" + 
-                " FILTER (strEnds(str(?tipoIngrediente), \"Carne\") || strEnds(str(?tipoIngrediente), \"Embutido\")) . \n }";
+                " FILTER ((strEnds(str(?tipoIngrediente), \"Carne\") || strEnds(str(?tipoIngrediente), \"Embutido\")) && strEnds(str(?receta), \"" + this.text2Search + "\")) . \n }";
                 
                 String where2 = "{ ?receta rdfs:subClassOf ?class . \n" +
+                " ?class owl:onProperty ?property . \n" +
                 " ?class owl:onProperty recetario:tiene_ingrediente . \n" +
                 " ?class owl:allValuesFrom ?allValues .\n" +
                 " ?allValues owl:unionOf ?union . \n" +
@@ -53,16 +48,13 @@ public class IncluyenCarne extends Inference {
                 " ?class2 owl:someValuesFrom ?ingrediente . \n " +
                 " ?ingrediente rdfs:subClassOf ?tipoIngrediente . \n" + 
                 " ?tipoIngrediente rdfs:subClassOf recetario:Ingrediente . \n" + 
-                " FILTER (strEnds(str(?tipoIngrediente), \"Carne\") || strEnds(str(?tipoIngrediente), \"Embutido\")) . \n }";
+                " FILTER ((strEnds(str(?tipoIngrediente), \"Carne\") || strEnds(str(?tipoIngrediente), \"Embutido\")) && strEnds(str(?receta), \"" + this.text2Search + "\")) . \n }";
                 
-                String query = "select ?receta where { " + where1 + " UNION " + where2 + 
-                " } GROUP BY ?receta \n " +
+                String query = "select ?receta ?property ?tipoIngrediente where { " + where1 + " UNION " + where2 + 
+                " } GROUP BY ?receta ?property ?tipoIngrediente \n " +
                 " HAVING (count(?ingrediente) > 0) ";
                 
-                result = ontology.query(query, null);
-                
-            } else {
-                return new ArrayList<>();
+                result = ontology.query(query, new String[]{"receta", "property", "tipoIngrediente"});
             }
         } catch (Exception ex) {
             ex.printStackTrace();
