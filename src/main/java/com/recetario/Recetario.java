@@ -13,11 +13,16 @@ import com.recetario.inference.Inference;
 import com.recetario.inference.Ingredientes;
 import com.recetario.inference.SubClass;
 import com.recetario.inference.SubRecetas;
+import com.recetario.search.RecetarioIndexer;
+import com.recetario.search.RecetarioSearcher;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.lucene.queryparser.classic.ParseException;
 
 /**
  *
@@ -33,16 +38,48 @@ public class Recetario {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParseException
+    {
+        
         if (args.length == 0) {
             text = "SalsaBlanca";
         } else {
             text = args[0];
         }
         initializeInferenceList();
+        
         ArrayList<String> clases = toStrings(search());
-        System.out.println("-- Términos Relacionados --");
-        System.out.println(clases.toString());
+    
+        RecetarioIndexer indexer =  new RecetarioIndexer("fileDirectory", "indexDirectory"); 
+        
+        
+        indexer.Load();
+        
+        
+        RecetarioSearcher searcher  = new RecetarioSearcher("indexDirectory");  
+        
+        searcher.Open();
+        
+        Map<String,String[]> result =  searcher.Search( clases );
+        
+        searcher.Close();
+        
+        for(Map.Entry<String, String[]> entry : result.entrySet())
+        {
+            System.out.println("=========================");
+            System.out.println("Clase:  " + entry.getKey());
+            
+            for(String texto:entry.getValue())
+            {
+                System.out.println(texto);
+            }
+            System.out.println("=========================");
+            
+        }
+        
+        
+        
+        
     }
     
     public static ArrayList<String> findRelatedClasses(String text2Search) {
