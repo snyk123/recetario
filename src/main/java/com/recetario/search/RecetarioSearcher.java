@@ -77,6 +77,25 @@ public class RecetarioSearcher {
         }
         return al.toArray(new String[al.size()]);
     }   
+    public Map<String, String> SearchText(String Text) throws ParseException, IOException
+    {
+        ScoreDoc[] listaDocs;
+        QueryParser parser  = new QueryParser("texto", this.analyzer); 
+        Query query = parser.parse(Text);
+               
+        Map<String, String> result; 
+        result = new HashMap<>();
+        
+        listaDocs = this.searcher.search(query, 100).scoreDocs;
+        
+        for(ScoreDoc sdoc:listaDocs)
+        {
+            Document document = this.searcher.doc(sdoc.doc);
+            String text = document.get("texto");
+            result.put( Integer.toString(sdoc.doc),  text);
+        }
+        return result;
+    }
     public Map<String, String[]> Search(ArrayList<String> clases) throws ParseException, IOException
     {
         Map<String,String[]> results = new HashMap<>();  

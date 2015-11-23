@@ -42,7 +42,8 @@ public class Recetario {
     {
         
         if (args.length == 0) {
-            text = "SalsaBlanca";
+          //  text = "SalsaBlanca";
+          text =  "Tallarines"; 
         } else {
             text = args[0];
         }
@@ -50,16 +51,36 @@ public class Recetario {
         
         ArrayList<String> clases = toStrings(search());
     
-        RecetarioIndexer indexer =  new RecetarioIndexer("fileDirectory", "indexDirectory"); 
+        //RecetarioIndexer indexer =  new RecetarioIndexer("fileDirectory", "indexDirectory"); 
         
         
-        indexer.Load();
+        //indexer.Load();
         
         
         RecetarioSearcher searcher  = new RecetarioSearcher("indexDirectory");  
         
         searcher.Open();
         
+        
+        //Search by text
+        
+        
+        Map<String,String> textResults  =  searcher.SearchText(text);
+        
+        System.out.println("==========================================");
+        System.out.println("===========Free text result ==============");
+            
+        
+        
+        for(Map.Entry<String,String> texto : textResults.entrySet() )
+        {
+            System.out.println("Doc Id:  " + texto.getKey());
+            System.out.println(texto.getValue());
+        }
+        
+        System.out.println("==========================================");
+        System.out.println("=========== Semantic result ==============");
+            
         Map<String,String[]> result =  searcher.Search( clases );
         
         searcher.Close();
@@ -69,10 +90,15 @@ public class Recetario {
             System.out.println("=========================");
             System.out.println("Clase:  " + entry.getKey());
             
-            for(String texto:entry.getValue())
-            {
-                System.out.println(texto);
+            String[] textos = entry.getValue();
+            
+            for (int i = 0; i < textos.length ; i++) {
+                
+                System.out.println("Result :  " + i );
+                System.out.println(textos[i]);
+                
             }
+            
             System.out.println("=========================");
             
         }
