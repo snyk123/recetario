@@ -14,8 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import jdk.nashorn.internal.objects.NativeArray;
-import org.apache.lucene.analysis.es.SpanishAnalyzer;
+//import jdk.nashorn.internal.objects.NativeArray;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -24,13 +23,13 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
-import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
 /**
  *
  * @author gregory
  */
 public class RecetarioIndexer {
+    final int NUMFILES = 12;
     private String FileDirectory = "fileDirectory";
     private String IndexDirectory = "indexDirectory";
     private Directory Directory;
@@ -77,7 +76,7 @@ public class RecetarioIndexer {
     {
         FileInputStream fstream = new FileInputStream(Path); 
         DataInputStream entrada = new DataInputStream(fstream);
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
+        BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada, "UTF8"));
         String strLinea;
         String texto = "";
         while ((strLinea = buffer.readLine()) != null) {
@@ -85,35 +84,37 @@ public class RecetarioIndexer {
         }
         return texto;
     }
-    private String[] ReadClases(String Path) throws FileNotFoundException, IOException
-    {
-        
-        ArrayList<String> al = new ArrayList<>();         
-        FileInputStream fstream = new FileInputStream(Path); 
-        DataInputStream entrada = new DataInputStream(fstream);
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
-        String strLinea;
-  
-        while ((strLinea = buffer.readLine()) != null) {
-            
-            al.add(strLinea);
-
-        }
-        
-        return al.toArray(new String[al.size()]);
-    }
+    
+//    private String[] ReadClases(String Path) throws FileNotFoundException, IOException
+//    {
+//        
+//        ArrayList<String> al = new ArrayList<>();         
+//        FileInputStream fstream = new FileInputStream(Path); 
+//        DataInputStream entrada = new DataInputStream(fstream);
+//        BufferedReader buffer = new BufferedReader(new InputStreamReader(entrada));
+//        String strLinea;
+//  
+//        while ((strLinea = buffer.readLine()) != null) {
+//            
+//            al.add(strLinea);
+//
+//        }
+//        
+//        return al.toArray(new String[al.size()]);
+//    }
+    
     public void Load() throws IOException
     {
         this.CreateWriter(); 
         this.ClearDocuments(); 
-        for (int i = 1; i < 13; i++) {
-            String texto = ReadText("fileDirectory/Texto" + i +  ".txt");
-            String[] clases = ReadClases("fileDirectory/Clase" + i + ".txt");
+        for (int i=1; i < NUMFILES+1; i++) {
+            String texto = ReadText("fileDirectory/texto" + i +  ".txt");
+            String clases = ReadText("fileDirectory/clase" + i + ".txt");
           
-            for(String clase:clases)
-            {
-                this.Index(texto, clase);
-            }
+/*            for(String clase:clases)
+            { */
+                this.Index(texto, clases);
+            /*}*/
         }
         this.CloseWritter();
     }

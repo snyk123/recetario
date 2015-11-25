@@ -9,7 +9,6 @@ package com.recetario.search;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -20,7 +19,6 @@ import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
-import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
@@ -39,7 +37,6 @@ public class RecetarioSearcher {
     public RecetarioSearcher(String IndexDir) throws IOException
     {
         this.IndexDirectory = IndexDir;
-       
         
     }
     
@@ -49,7 +46,7 @@ public class RecetarioSearcher {
     }
     public void Open() throws IOException
     {
-         this.directory = FSDirectory.open(new File(this.IndexDirectory));
+        this.directory = FSDirectory.open(new File(this.IndexDirectory));
         
         this.directoryReader = DirectoryReader.open(directory);
                
@@ -102,7 +99,6 @@ public class RecetarioSearcher {
         for(String clase:clases)
         {
             String[] result = this.Search(clase);
-            
             results.put(clase, result);
             
         }

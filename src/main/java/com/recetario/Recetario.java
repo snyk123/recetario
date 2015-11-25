@@ -42,35 +42,25 @@ public class Recetario {
     {
         
         if (args.length == 0) {
-          //  text = "SalsaBlanca";
-          text =  "Tallarines"; 
+          text =  "Bolognesa"; 
         } else {
             text = args[0];
         }
         initializeInferenceList();
         
         ArrayList<String> clases = toStrings(search());
-    
-        //RecetarioIndexer indexer =  new RecetarioIndexer("fileDirectory", "indexDirectory"); 
-        
-        
-        //indexer.Load();
-        
-        
+
+        RecetarioIndexer indexer =  new RecetarioIndexer("fileDirectory", "indexDirectory");
+        indexer.Load();
         RecetarioSearcher searcher  = new RecetarioSearcher("indexDirectory");  
         
         searcher.Open();
-        
-        
         //Search by text
-        
-        
         Map<String,String> textResults  =  searcher.SearchText(text);
         
         System.out.println("==========================================");
         System.out.println("===========Free text result ==============");
-            
-        
+                
         
         for(Map.Entry<String,String> texto : textResults.entrySet() )
         {
@@ -102,10 +92,7 @@ public class Recetario {
             System.out.println("=========================");
             
         }
-        
-        
-        
-        
+
     }
     
     public static ArrayList<String> findRelatedClasses(String text2Search) {
