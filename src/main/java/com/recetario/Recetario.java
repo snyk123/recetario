@@ -42,7 +42,7 @@ public class Recetario {
     {
         
         if (args.length == 0) {
-          text =  "Bolognesa"; 
+          text =  "maki sushi"; 
         } else {
             text = args[0];
         }
@@ -56,10 +56,13 @@ public class Recetario {
         
         searcher.Open();
         //Search by text
+        
+        
+        
         Map<String,String> textResults  =  searcher.SearchText(text);
         
         System.out.println("==========================================");
-        System.out.println("===========Free text result ==============");
+        System.out.println("=========== Free text result ==============");
                 
         
         for(Map.Entry<String,String> texto : textResults.entrySet() )
@@ -118,7 +121,7 @@ public class Recetario {
         Iterator<Inference> iterator = inferenceList.iterator();
         while (iterator.hasNext()) {
             try {
-                ArrayList<Statement> inferenceResult = iterator.next().search(text);
+                ArrayList<Statement> inferenceResult = iterator.next().search(WordUpFormat(text));
                 result.removeAll(inferenceResult);
                 result.addAll(inferenceResult);
             } catch (FileNotFoundException | ClassCastException ex) {
@@ -150,6 +153,25 @@ public class Recetario {
             }
         }
         return result;
+    }
+        
+    private static String WordUpFormat(String wordup) {
+        
+        String[] word_list;
+        wordup = wordup.trim();
+        String cad="";
+        if (wordup.indexOf(" ") >= 0) {
+            wordup = wordup.replaceAll("  ", " ");
+            word_list = wordup.split(" ");
+            for (String word: word_list) {
+                cad =  cad + String.valueOf(word.charAt(0)).toUpperCase() + word.substring(1);
+            }            
+        } else {
+            cad = wordup;
+        }
+        // System.out.println( ">>>>>>>>>>>>>>>>>>>>>>>>> "+ cad);
+        return cad;
+        
     }
     
 }

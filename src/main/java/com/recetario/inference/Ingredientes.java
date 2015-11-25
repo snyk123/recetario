@@ -32,7 +32,7 @@ public class Ingredientes extends Inference {
                 " ?class owl:allValuesFrom ?allValues .\n" +
                 " ?allValues owl:unionOf ?union . \n" +
                 " ?union rdf:rest* [ rdf:first ?ingrediente ] . \n" +
-                " FILTER (strEnds(str(?receta), \"" + this.text2Search + "\")) . \n }";
+                " FILTER (strEnds(str(?receta), \"" + this.text2Search + "\") || strEnds(str(?ingrediente), \"" + this.text2Search + "\")) . \n }";
                 
                 result = ontology.query(query, new String[]{"receta", "property", "ingrediente"});
             }

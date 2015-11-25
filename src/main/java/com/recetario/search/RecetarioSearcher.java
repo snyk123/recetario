@@ -22,6 +22,7 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
+
 /**
  *
  * @author gregory
@@ -95,6 +96,8 @@ public class RecetarioSearcher {
     }
     public Map<String, String[]> Search(ArrayList<String> clases) throws ParseException, IOException
     {
+        
+        
         Map<String,String[]> results = new HashMap<>();  
         for(String clase:clases)
         {
@@ -104,4 +107,7 @@ public class RecetarioSearcher {
         }
         return results;
     }
+    
 }
+
+
